@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const CountrySwitcher = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default CountrySwitcher
+export default CountrySwitcher;
