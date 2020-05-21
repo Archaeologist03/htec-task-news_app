@@ -7,20 +7,18 @@ export const HeaderContainer = styled.header`
   z-index: 5;
   width: 100%;
   display: flex;
-
-  border: 4px solid green;
 `;
 
 export const NavigationContainer = styled.div`
-  border: 4px solid tomato;
-
   display: flex;
   justify-self: flex-start;
 `;
 
 export const CounterSwitcherContainer = styled.div`
-  border: 4px solid yellow;
-
+  margin-left: auto;
   display: flex;
-  justify-self: flex-end;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  overflow: hidden;
 `;
