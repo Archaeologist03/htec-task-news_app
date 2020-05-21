@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-export const TopNewsContainer = styled.section`
+export const TopNewsContainer = styled.div`
   border: 2px solid red;
   min-height: 100vh;
 `;
@@ -19,7 +19,7 @@ export const TopNewsTitle = styled.div`
 export const NewsCardContainer = styled.div``;
 
 const TopNews = () => {
-  return <div>Top News Page</div>;
+  return <TopNewsContainer>Top News Page</TopNewsContainer>;
 };
 
 export default TopNews;
