@@ -1,10 +1,15 @@
 import React from 'react';
 
+import ListedNewsPage from '../../components/ListedNewsPage/ListedNewsPage';
+
 import styled from 'styled-components';
 
 export const TopNewsContainer = styled.div`
-  border: 2px solid red;
-  min-height: 100vh;
+  position: absolute;
+  top: 10%;
+  min-height: 90%;
+
+  border: 3px solid green;
 `;
 
 export const TopNewsTitle = styled.div`
@@ -19,7 +24,11 @@ export const TopNewsTitle = styled.div`
 export const NewsCardContainer = styled.div``;
 
 const TopNews = () => {
-  return <TopNewsContainer>Top News Page</TopNewsContainer>;
+  return (
+    <TopNewsContainer>
+      <ListedNewsPage />
+    </TopNewsContainer>
+  );
 };
 
 export default TopNews;

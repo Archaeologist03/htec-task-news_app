@@ -7,6 +7,9 @@ export const HeaderContainer = styled.header`
   z-index: 5;
   width: 100%;
   display: flex;
+  border-bottom: 2px solid black;
+  box-shadow: 2px 2px 4px black;
+  min-height: 10vh;
 `;
 
 export const NavigationContainer = styled.div`

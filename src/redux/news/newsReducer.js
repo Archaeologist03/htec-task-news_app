@@ -2,7 +2,7 @@ import NewsTypes from './newsTypes';
 
 const INITIAL_STATE = {
   country: 'gb', // gb / us
-  countrySwitcherDisabled: true,
+  countrySwitcherDisabled: false,
   topGbNews: null,
   topUsNews: null,
   error: null,
