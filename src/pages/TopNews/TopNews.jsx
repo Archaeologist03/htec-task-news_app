@@ -1,32 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import ListedNewsPage from '../../components/ListedNewsPage/ListedNewsPage';
+import { fetchTopNews } from '../../redux/news/newsActions';
 
-import styled from 'styled-components';
+import ListedArticles from '../../components/ListedArticles/ListedArticles';
 
-export const TopNewsContainer = styled.div`
-  position: absolute;
-  top: 10%;
-  min-height: 90%;
+import { countries } from '../../constants/constants';
 
-  border: 3px solid green;
-`;
-
-export const TopNewsTitle = styled.div`
-  color: white;
-
-  .country {
-    font-size: 2rem;
-    color: tomato;
-  }
-`;
-
-export const NewsCardContainer = styled.div``;
+import { TopNewsContainer } from './topNews.styles';
 
 const TopNews = () => {
+  const dispatch = useDispatch();
+  const country = useSelector((state) => state.news.country);
+  const topNewsArticles = useSelector((state) => state.news.topNewsArticles);
+  const error = useSelector((state) => state.news.error);
+  console.log(error, 'error in topNews');
+
+  useEffect(() => {
+    dispatch(fetchTopNews(country));
+  }, [country, dispatch]);
+
+  const pageTitle = `Top news from ${countries[country]}`;
+
   return (
     <TopNewsContainer>
-      <ListedNewsPage />
+      <ListedArticles articles={topNewsArticles} pageTitle={pageTitle} />
     </TopNewsContainer>
   );
 };

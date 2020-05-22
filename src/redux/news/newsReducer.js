@@ -3,8 +3,7 @@ import NewsTypes from './newsTypes';
 const INITIAL_STATE = {
   country: 'gb', // gb / us
   countrySwitcherDisabled: false,
-  topGbNews: null,
-  topUsNews: null,
+  topNewsArticles: null,
   error: null,
 };
 
@@ -23,15 +22,16 @@ const newsReducer = (state = INITIAL_STATE, action) => {
         error: null,
       };
     case NewsTypes.FETCH_TOP_NEWS_SUCCESS:
-      // determine country then update accordingly
       return {
         ...state,
+        topNewsArticles: action.payload,
         error: null,
       };
     case NewsTypes.FETCH_TOP_NEWS_FAIL:
+      const errorMessage = 'Error occured, try to refresh page.';
       return {
         ...state,
-        error: action.payload,
+        error: errorMessage,
       };
 
     default:

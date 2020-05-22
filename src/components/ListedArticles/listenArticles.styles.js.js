@@ -2,35 +2,35 @@ import styled from 'styled-components';
 
 import { yellowColor } from '../../styles/-variables';
 
-export const ListedNewsPageContainer = styled.div`
-  border: 2px solid white;
+export const ListedArticlesContainer = styled.div`
+  width: 100%;
 
   .pageTitle {
     color: #fff;
     margin-left: 20px;
+    margin: 3rem 2rem;
 
     .pageTitleCountry {
       color: ${yellowColor};
     }
   }
 
-  .newsCardsContainer {
-    border: 2px solid white;
-
+  .articlesCardsContainer {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
   }
 `;
 
-export const NewsCardContainer = styled.article`
+export const ArticleCardContainer = styled.article`
   margin: 10px;
+  width: 30%;
 
-  @media (max-width: 968px) {
+  @media (max-width: 1168px) {
     width: 45%;
   }
 
-  @media (max-width: 568px) {
+  @media (max-width: 860px) {
     width: 100%;
   }
 `;
