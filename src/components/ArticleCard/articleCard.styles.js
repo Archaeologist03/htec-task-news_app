@@ -58,7 +58,6 @@ export const ArticleCardContainer = styled.article`
     font-size: 1.5rem;
     font-weight: bold;
     padding-top: 1rem;
-    color: white;
     align-self: flex-end;
     color: ${yellowColor};
   }

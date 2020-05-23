@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { ArticleCardContainer } from './articleCard.styles';
 
-const ArticleCard = ({ title, imageUrl, description }) => {
+const ArticleCard = ({ title, imageUrl, description, articleId }) => {
   return (
     <ArticleCardContainer>
       <h2 className='cardTitle'>{title}</h2>
@@ -10,9 +12,9 @@ const ArticleCard = ({ title, imageUrl, description }) => {
         <img src={imageUrl} alt='news' />
       </div>
       <p className='cardDescription'>{description}</p>
-      <a href='/sometitle' className='cardMore'>
+      <Link to={`/${articleId}`} className='cardMore'>
         More
-      </a>
+      </Link>
     </ArticleCardContainer>
   );
 };

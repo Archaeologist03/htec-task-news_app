@@ -8,12 +8,13 @@ import {
   ArticleCardContainer,
 } from './listenArticles.styles.js.js';
 
-const ListedArticles = ({ pageTitle, articles }) => {
+const ListedArticles = React.memo(({ pageTitle, articles }) => {
   const articlesCards = articles
     ? articles.map((articleObj, i) => {
         return (
           <ArticleCardContainer key={i}>
             <ArticleCard
+              articleId={i}
               title={articleObj.title}
               imageUrl={articleObj.urlToImage}
               description={articleObj.description}
@@ -29,7 +30,7 @@ const ListedArticles = ({ pageTitle, articles }) => {
       <section className='articlesCardsContainer'>{articlesCards}</section>
     </ListedArticlesContainer>
   );
-};
+});
 
 ListedArticles.propTypes = {
   articles: PropTypes.array,

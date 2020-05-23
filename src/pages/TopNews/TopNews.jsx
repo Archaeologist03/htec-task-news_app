@@ -9,7 +9,7 @@ import { countries } from '../../constants/constants';
 
 import { TopNewsContainer } from './topNews.styles';
 
-const TopNews = () => {
+const TopNews = React.memo(() => {
   const dispatch = useDispatch();
   const country = useSelector((state) => state.news.country);
   const topNewsArticles = useSelector((state) => state.news.topNewsArticles);
@@ -22,11 +22,13 @@ const TopNews = () => {
 
   const pageTitle = `Top news from ${countries[country]}`;
 
+  console.log(topNewsArticles, 'topNews');
+
   return (
     <TopNewsContainer>
       <ListedArticles articles={topNewsArticles} pageTitle={pageTitle} />
     </TopNewsContainer>
   );
-};
+});
 
 export default TopNews;

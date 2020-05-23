@@ -12,6 +12,9 @@ import { AppContainer, SpinnerContainer } from './app.styles';
 const TopNewsPage = lazy(() => import('./pages/TopNews/TopNews'));
 const CategoriesPage = lazy(() => import('./pages/Categories/Categories'));
 const SearchPage = lazy(() => import('./pages/Search/Search'));
+const SingleArticlePage = lazy(() =>
+  import('./pages/SingleArticle/SingleArticle'),
+);
 
 function App() {
   return (
@@ -27,6 +30,8 @@ function App() {
           }>
           <Switch>
             <Route exact path='/' component={TopNewsPage} />
+            <Route exact path='/:articleId' component={SingleArticlePage} />
+
             <Route path='/categories' component={CategoriesPage} />
             <Route path='/search' component={SearchPage} />
           </Switch>
