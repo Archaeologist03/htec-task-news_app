@@ -7,6 +7,10 @@ export const HeaderContainer = styled.header`
   z-index: 5;
   width: 100%;
   display: flex;
+  border-bottom: 2px solid black;
+  box-shadow: 2px 2px 4px black;
+  min-height: 10vh;
+  background-color: #161616;
 `;
 
 export const NavigationContainer = styled.div`
@@ -19,6 +23,6 @@ export const CounterSwitcherContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 10px;
+  margin-right: 5vw;
   overflow: hidden;
 `;

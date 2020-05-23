@@ -7,8 +7,9 @@ import { CountrySwitcherContainer } from './countrySwitcher.styles';
 
 const CountrySwitcher = () => {
   const dispatch = useDispatch();
-  const countrySwitcherDisabled = useSelector(
-    (state) => state.news.countrySwitcherDisabled,
+  // true if enabled
+  const countrySwitcherState = useSelector(
+    (state) => state.news.countrySwitcherState,
   );
 
   const handleInputClick = (countryToSwitch) => {
@@ -25,7 +26,7 @@ const CountrySwitcher = () => {
         type='radio'
         onClick={() => handleInputClick('gb')}
         defaultChecked
-        disabled={countrySwitcherDisabled}
+        disabled={!countrySwitcherState}
       />
       <label htmlFor='toggle-on' className='btn'>
         GB
@@ -37,7 +38,7 @@ const CountrySwitcher = () => {
         value='true'
         type='radio'
         onClick={() => handleInputClick('us')}
-        disabled={countrySwitcherDisabled}
+        disabled={!countrySwitcherState}
       />
       <label htmlFor='toggle-off' className='btn'>
         US

@@ -5,11 +5,12 @@ export const countrySwitch = (country) => ({
   payload: country,
 });
 
-export const isCountrySwitcherEnabled = (bool) => ({
-  type: newsTypes.COUNTRY_SWITCHER_DISABLED,
+export const countrySwitcherState = (bool) => ({
+  type: newsTypes.COUNTRY_SWITCHER_STATE,
   payload: bool,
 });
 
-export const fetchTopNews = () => ({
+export const fetchTopNews = (country) => ({
   type: newsTypes.FETCH_TOP_NEWS,
+  country,
 });
