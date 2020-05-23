@@ -20,10 +20,13 @@ export const CountrySwitcherContainer = styled.div`
     & + label {
       cursor: pointer;
       min-width: 60px;
+      transition: border 0.5s ease-in-out;
+
       &:hover {
         background: none;
         color: ${hoverText};
       }
+
       &:after {
         background: ${yellowColor};
         content: '';
@@ -35,12 +38,15 @@ export const CountrySwitcherContainer = styled.div`
         z-index: -1;
       }
     }
+
     &.toggle-left + label {
       border-right: 0;
+
       &:after {
         left: 100%;
       }
     }
+
     &.toggle-right + label {
       &:after {
         left: -100%;
@@ -50,6 +56,7 @@ export const CountrySwitcherContainer = styled.div`
       cursor: default;
       color: #fff;
       transition: color 200ms;
+
       &:after {
         left: 0;
       }

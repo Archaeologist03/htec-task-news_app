@@ -2,7 +2,7 @@ import NewsTypes from './newsTypes';
 
 const INITIAL_STATE = {
   country: 'gb', // gb / us
-  countrySwitcherDisabled: false,
+  countrySwitcherState: true,
   topNewsArticles: null,
   error: null,
 };
@@ -15,10 +15,10 @@ const newsReducer = (state = INITIAL_STATE, action) => {
         country: action.payload,
         error: null,
       };
-    case NewsTypes.COUNTRY_SWITCHER_DISABLED:
+    case NewsTypes.COUNTRY_SWITCHER_STATE:
       return {
         ...state,
-        countrySwitcherDisabled: action.payload,
+        countrySwitcherState: action.payload,
         error: null,
       };
     case NewsTypes.FETCH_TOP_NEWS_SUCCESS:

@@ -16,6 +16,10 @@ export const ArticleCardContainer = styled.article`
     box-shadow: 8px 8px 18px black;
   }
 
+  &:hover .cardImageContainer img {
+    box-shadow: 4px 4px 12px black;
+  }
+
   .cardTitle {
     font-size: 1.4rem;
     color: white;
@@ -28,9 +32,20 @@ export const ArticleCardContainer = styled.article`
   .cardImageContainer {
     overflow: hidden;
     width: 100%;
-    height: 300px;
+    height: 30vh;
     position: relative;
-    overflow: hidden;
+    border-radius: 12px;
+
+    @media (max-width: 968px) {
+      height: 25vh;
+    }
+
+    @media (max-width: 860px) {
+      height: 40vh;
+    }
+    @media (max-width: 560px) {
+      height: 25vh;
+    }
 
     img {
       position: absolute;
@@ -40,6 +55,7 @@ export const ArticleCardContainer = styled.article`
       max-width: 100%;
       max-height: 100%;
       display: block;
+      transition: box-shadow ease-in-out 1s;
     }
   }
   .cardDescription {
