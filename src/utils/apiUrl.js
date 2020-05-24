@@ -1,9 +1,10 @@
 import {
   TOP_HEADLINES_ENDPOINT,
   TESTING_API_KEY,
+  BASE_URL,
 } from '../constants/constants';
 
-// const corsTapeFix = 'https://cors-anywhere.herokuapp.com/';
+const corsTapeFix = 'https://cors-anywhere.herokuapp.com/';
 
 const apiUrl = (country = 'gb', ...restArgs) => {
   // Second arg is going to be object with either category or search term property.
@@ -17,7 +18,7 @@ const apiUrl = (country = 'gb', ...restArgs) => {
     searchTerm = restArgs[0].searchTerm;
   }
 
-  const topHeadlinesBaseUrl = `/${TOP_HEADLINES_ENDPOINT}`;
+  const topHeadlinesBaseUrl = `${corsTapeFix}${BASE_URL}/${TOP_HEADLINES_ENDPOINT}`;
 
   if (category !== null) {
     return `${topHeadlinesBaseUrl}?country=${country}&category=${category}&apiKey=${TESTING_API_KEY}`;
