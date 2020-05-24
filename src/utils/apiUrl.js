@@ -6,14 +6,23 @@ import {
 // const corsTapeFix = 'https://cors-anywhere.herokuapp.com/';
 
 const apiUrl = (country = 'gb', ...restArgs) => {
-  const [category, searchTerm] = restArgs;
+  // Second arg is going to be object with either category or search term property.
+  let category = null;
+  let searchTerm = null;
+
+  if (restArgs[0] && restArgs[0].category) {
+    category = restArgs[0].category;
+  }
+  if (restArgs[0] && restArgs[0].searchTerm) {
+    searchTerm = restArgs[0].searchTerm;
+  }
 
   const topHeadlinesBaseUrl = `/${TOP_HEADLINES_ENDPOINT}`;
 
-  if (category) {
+  if (category !== null) {
     return `${topHeadlinesBaseUrl}?country=${country}&category=${category}&apiKey=${TESTING_API_KEY}`;
   }
-  if (searchTerm) {
+  if (searchTerm !== null) {
     return `${topHeadlinesBaseUrl}?country=${country}&q=${searchTerm}&apiKey=${TESTING_API_KEY}`;
   }
 
@@ -22,7 +31,9 @@ const apiUrl = (country = 'gb', ...restArgs) => {
 
 export default apiUrl;
 
-// Examples:
+//
+//
+// EXAMPLES:
 
 // Top News from US = https://newsapi.org/v2/top-headlines?country=us&apiKey=61386a82d4274faf9ba1787cb253033c
 

@@ -43,6 +43,7 @@ export const ArticleCardContainer = styled.article`
     @media (max-width: 860px) {
       height: 40vh;
     }
+
     @media (max-width: 560px) {
       height: 25vh;
     }

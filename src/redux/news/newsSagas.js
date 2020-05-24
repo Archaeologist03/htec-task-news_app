@@ -1,6 +1,9 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
 
-import { fetchTopNewsService } from '../../services/newsService';
+import {
+  fetchTopNewsService,
+  fetchTopNewsByTermService,
+} from '../../services/newsService';
 import newsTypes from './newsTypes';
 
 // On Country change / inital load
@@ -18,7 +21,25 @@ export function* fetchTopNewsSaga(payload) {
   }
 }
 
+// On typing to input field on search page
+// Payload is obj with type, country and searchTerm
+export function* fetchTopNewsByTermSaga(payload) {
+  try {
+    const { country, searchTerm } = payload;
+
+    const articles = yield call(fetchTopNewsByTermService, country, searchTerm);
+
+    yield put({
+      type: newsTypes.FETCH_TOP_NEWS_BY_TERM_SUCCESS,
+      payload: articles,
+    });
+  } catch (error) {
+    yield put({ type: newsTypes.FETCH_TOP_NEWS_BY_TERM_FAIL, payload: error });
+  }
+}
+
 // Watcher Saga
 export function* newsSagas() {
   yield takeLatest(newsTypes.FETCH_TOP_NEWS, fetchTopNewsSaga);
+  yield takeLatest(newsTypes.FETCH_TOP_NEWS_BY_TERM, fetchTopNewsByTermSaga);
 }

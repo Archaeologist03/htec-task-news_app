@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   country: 'gb', // gb / us
   countrySwitcherState: true,
   topNewsArticles: null,
+  topNewsByTermArticles: null,
   error: null,
 };
 
@@ -27,7 +28,13 @@ const newsReducer = (state = INITIAL_STATE, action) => {
         topNewsArticles: action.payload,
         error: null,
       };
-    case NewsTypes.FETCH_TOP_NEWS_FAIL:
+    case NewsTypes.FETCH_TOP_NEWS_BY_TERM_SUCCESS:
+      return {
+        ...state,
+        topNewsByTermArticles: action.payload,
+        error: null,
+      };
+    case NewsTypes.FETCH_TOP_NEWS_BY_TERM_FAIL:
       const errorMessage = 'Error occured, try to refresh page.';
       return {
         ...state,

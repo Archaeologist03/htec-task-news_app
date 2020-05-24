@@ -10,7 +10,17 @@ export const countrySwitcherState = (bool) => ({
   payload: bool,
 });
 
-export const fetchTopNews = (country) => ({
-  type: newsTypes.FETCH_TOP_NEWS,
-  country,
-});
+export const fetchTopNews = (country) => {
+  return {
+    type: newsTypes.FETCH_TOP_NEWS,
+    country,
+  };
+};
+
+export const fetchTopNewsByTerm = (country, searchTerm) => {
+  return {
+    type: newsTypes.FETCH_TOP_NEWS_BY_TERM,
+    country,
+    searchTerm,
+  };
+};
