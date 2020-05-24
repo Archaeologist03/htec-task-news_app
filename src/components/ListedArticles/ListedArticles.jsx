@@ -6,7 +6,7 @@ import ArticleCard from '../ArticleCard/ArticleCard';
 import {
   ListedArticlesContainer,
   ArticleCardContainer,
-} from './listenArticles.styles.js.js';
+} from './listedArticles.styles.js.js';
 
 const ListedArticles = React.memo(({ pageTitle, articles }) => {
   const articlesCards = articles
@@ -24,9 +24,11 @@ const ListedArticles = React.memo(({ pageTitle, articles }) => {
       })
     : null;
 
+  const title = pageTitle ? pageTitle : null;
+
   return (
     <ListedArticlesContainer>
-      <h1 className='pageTitle'>{pageTitle}:</h1>
+      <h1 className='pageTitle'>{title}</h1>
       <section className='articlesCardsContainer'>{articlesCards}</section>
     </ListedArticlesContainer>
   );

@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import { SingleArticleContainer } from './singleArticle.styles';
 
-// LOGIC in CONTAINER folder
+// UI for SingleArticle page - LOGIC in Containers folder
 const SingleArticle = ({ article }) => {
   const history = useHistory();
 

@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 import { yellowColor } from '../../styles/-variables';
+import { pageTitle } from '../../styles/-newsMixin';
 
 export const ListedArticlesContainer = styled.div`
   width: 100%;
 
   .pageTitle {
-    color: #fff;
-    margin-left: 20px;
-    margin: 3rem 2rem;
+    ${pageTitle}
 
     .pageTitleCountry {
       color: ${yellowColor};
