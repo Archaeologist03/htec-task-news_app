@@ -13,4 +13,8 @@ export const NavigationContainer = styled.nav`
   @media (max-width: 960px) {
     font-size: 1.2rem;
   }
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+  }
 `;

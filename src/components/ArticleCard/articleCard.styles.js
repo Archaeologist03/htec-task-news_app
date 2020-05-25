@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { yellowColor } from '../../styles/-variables';
+import { backAndForthHover } from '../../styles/-newsMixin';
 
 export const ArticleCardContainer = styled.article`
   display: flex;
@@ -80,5 +81,10 @@ export const ArticleCardContainer = styled.article`
     align-self: flex-end;
     color: ${yellowColor};
     z-index: 3;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      ${backAndForthHover}
+    }
   }
 `;
