@@ -1,68 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">Stay-to-Date - News App</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+</p>
 
-## Available Scripts
+> News app - Top News from GB & US, by Top/Categories, with Search option. Tech-stack: React / Redux(Saga) / styled-components.
 
-In the project directory, you can run:
+### ✨ [Demo](https://stay-to-date-news.netlify.app/)
 
-### `npm start`
+## Prerequisites:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- You need Node installed, for npm usage.
+  [Installing Node guide](https://nodejs.org/en/download/package-manager/)
+- You should also grab News API key, if testing one that project currently have fails.
+  [News Api](https://newsapi.org/docs/endpoints/top-headlines)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<hr/>
 
-### `npm test`
+## Install
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+npm install
+```
 
-### `npm run build`
+## Usage
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+npm start
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<hr/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Folder Structure:
 
-### `npm run eject`
+### src/
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### components ---> Components.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### containers ---> Extracted logic for bloated components.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### pages ---> Main Top-Level Pages.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### redux ---> State
 
-## Learn More
+#### services ---> Logic, Mostly Fetching redux related.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### styles ---> Styling variables and mixins.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### utils ---> Small data manipulation utils.
 
-### Code Splitting
+#### constants ---> URLs, Categories and that sort of stuff.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<hr/>
 
-### Analyzing the Bundle Size
+### Useful links:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### React tech:
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [React Hooks docs](https://reactjs.org/docs/hooks-intro.html) <br>
+- [React Router v5.1 article](https://reacttraining.com/blog/react-router-v5-1/) <br>
+- [Redux Saga docs](https://redux-saga.js.org/) <br>
+- [styled-components](https://styled-components.com/)
