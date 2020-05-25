@@ -13,11 +13,16 @@ export const SearchContainer = styled.div`
 
   .pageTitle {
     ${pageTitle}
+
+    @media (max-width: 460px) {
+      margin-top: 150px;
+    }
   }
 `;
 
 export const SearchBarContainer = styled.div`
   width: 25%;
+  z-index: 2;
 
   @media (max-width: 1160px) {
     width: 35%;
@@ -29,5 +34,9 @@ export const SearchBarContainer = styled.div`
 
   @media (max-width: 560px) {
     width: 65%;
+  }
+
+  @media (max-width: 460px) {
+    margin-bottom: -100px;
   }
 `;

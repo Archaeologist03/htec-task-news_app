@@ -19,10 +19,15 @@ const SingleArticleContainer = () => {
 
   // ROUTER
   const articleId = useParams().articleId;
+  const category = useParams().category;
 
   // STATE
   // Top News
   const topNewsArticles = useSelector((state) => state.news.topNewsArticles);
+  // Top News By Category
+  const topNewsByCategoryArticles = useSelector(
+    (state) => state.news.topNewsByCategories[category],
+  );
   // Top News By Term
   const topNewsByTermArticles = useSelector(
     (state) => state.news.topNewsByTermArticles,
@@ -42,7 +47,7 @@ const SingleArticleContainer = () => {
 
   // REDIRECTING if ARTICLES are MISSING - Otherwise GETTING ARTICLE by ID from path
   let redirectPath;
-  // Top News by Term
+  // Top News by SEARCH TERM
   if (location.pathname.includes('search')) {
     redirectPath = SingleArticleOutterPathname(
       location.pathname,
@@ -51,11 +56,17 @@ const SingleArticleContainer = () => {
     );
     article = FindArticleById(topNewsByTermArticles, articleId);
   }
-  // News by Categories #################### TODO
+  // News by CATEGORY #################### TODO
   else if (location.pathname.includes('categories')) {
-    console.log('categories path');
+    redirectPath = SingleArticleOutterPathname(
+      location.pathname,
+      articleId,
+      topNewsByCategoryArticles,
+    );
+
+    article = FindArticleById(topNewsByCategoryArticles, articleId);
   }
-  // Top News
+  // TOP NEWS
   else {
     redirectPath = SingleArticleOutterPathname(
       location.pathname,

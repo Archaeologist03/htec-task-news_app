@@ -17,6 +17,14 @@ export const fetchTopNews = (country) => {
   };
 };
 
+export const fetchTopNewsByCategory = (country, category) => {
+  return {
+    type: newsTypes.FETCH_TOP_NEWS_BY_CATEGORY,
+    country,
+    category,
+  };
+};
+
 export const fetchTopNewsByTerm = (country, searchTerm) => {
   return {
     type: newsTypes.FETCH_TOP_NEWS_BY_TERM,

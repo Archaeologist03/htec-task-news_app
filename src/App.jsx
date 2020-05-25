@@ -15,6 +15,9 @@ const SearchPage = lazy(() => import('./pages/Search/Search'));
 const SingleArticlePage = lazy(() =>
   import('./containers/SingleArticleContainer'),
 );
+const CategoryPage = lazy(() =>
+  import('./pages/SingleCategory/SingleCategory'),
+);
 
 function App() {
   return (
@@ -29,14 +32,21 @@ function App() {
             </SpinnerContainer>
           }>
           <Switch>
+            {/* Top Level Pages */}
             <Route exact path='/' component={TopNewsPage} />
             <Route exact path='/categories' component={CategoriesPage} />
             <Route exact path='/search' component={SearchPage} />
 
+            <Route
+              exact
+              path='/categories/:category'
+              component={CategoryPage}
+            />
+
             {/*  Single Article pages for each of above routes */}
             <Route exact path='/:articleId' component={SingleArticlePage} />
             <Route
-              path='/categories/:articleId'
+              path='/categories/:category/:articleId'
               component={SingleArticlePage}
             />
             <Route path='/search/:articleId' component={SingleArticlePage} />

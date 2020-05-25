@@ -4,6 +4,8 @@ import { whiteText, yellowColor, hoverText } from '../../styles/-variables';
 
 export const CountrySwitcherContainer = styled.div`
   font-size: 20px;
+  border-radius: 4px;
+  overflow: hidden;
 
   .btn {
     border: 1px solid ${whiteText};
@@ -13,6 +15,8 @@ export const CountrySwitcherContainer = styled.div`
     text-align: center;
     transition: background 600ms ease, color 600ms ease;
     color: ${whiteText};
+    border-radius: 4px;
+    overflow: hidden;
   }
 
   input[type='radio'].toggle {
