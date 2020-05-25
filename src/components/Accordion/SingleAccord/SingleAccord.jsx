@@ -1,31 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+import { fetchTopNewsByCategory } from '../../../redux/news/newsActions';
 import capitalizeFirstChar from '../../../utils/capitalizeFirstChar';
 import Pagination from '../../Pagination/Pagination';
+import { SingleAccordContainer } from './singleAccord.styles';
 
-const SingleAccord = ({ category, paginationData }) => {
+const SingleAccord = ({ category }) => {
+  const dispatch = useDispatch();
+  const country = useSelector((state) => state.news.country);
+
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   let pathname = location.pathname;
-  console.log('category span clicked');
-  console.log(pathname, '121');
+
+  const categoryArticles = useSelector(
+    (state) => state.news.topNewsByCategories[category],
+  );
+
+  const onContainerClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      dispatch(fetchTopNewsByCategory(country, category));
+    }
+  }, [isOpen, country, category, dispatch]);
+
+  // False - accord is closed, and we fetch data on open. Otherwise no need for fething data (on accord close)
+
+  const articles = categoryArticles ? categoryArticles : null;
+
+  console.log(articles);
 
   return (
-    <div className='acord'>
-      <label htmlFor='tb-one' className='bg bg-one'>
-        <i className='fa fa-comments'></i>
-        <Link to={`${pathname}/${category}`} className='category-link'>
-          {capitalizeFirstChar(category)}
-        </Link>
-      </label>
-      <input type='checkbox' name='mytabs' id='tb-one' />
-      <i className='fa fa-chevron-circle-down'></i>
-      <div className='content'>
-        <span className='square'></span>
-        <Pagination paginationData={paginationData} />
+    <SingleAccordContainer onClick={onContainerClick}>
+      <Link to={`${pathname}/${category}`} className='category-link'>
+        {capitalizeFirstChar(category)}
+      </Link>
+      <div className={`content ${isOpen ? 'open' : null}`}>
+        <Pagination articles={articles} category={category} />
       </div>
-    </div>
+    </SingleAccordContainer>
   );
 };
 

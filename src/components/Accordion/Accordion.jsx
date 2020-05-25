@@ -12,7 +12,7 @@ const Accordion = () => {
 
   return (
     <AccordionContainer>
-      <div className='tabs-box'>{allAccords}</div>
+      <div className='accordTabsContainer'>{allAccords}</div>
     </AccordionContainer>
   );
 };

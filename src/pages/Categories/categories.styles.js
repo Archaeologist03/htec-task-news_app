@@ -4,7 +4,6 @@ import { pageContainer } from '../../styles/-pagesMixin';
 import { pageTitle } from '../../styles/-newsMixin';
 
 export const CategoriesContainer = styled.div`
-  border: 2px solid green;
   ${pageContainer}
   display: flex;
   flex-direction: column;

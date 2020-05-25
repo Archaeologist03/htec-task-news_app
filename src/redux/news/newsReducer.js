@@ -51,11 +51,12 @@ const newsReducer = (state = INITIAL_STATE, action) => {
     // CATEGORIES
     case NewsTypes.FETCH_TOP_NEWS_BY_CATEGORY_SUCCESS:
       const { articles, category } = action.payload;
+      console.log(state, 44444);
 
       return {
         ...state,
         topNewsByCategories: {
-          ...topNewsByCategories,
+          ...state.topNewsByCategories,
           [category]: articles,
         },
         error: null,

@@ -10,10 +10,11 @@ import ListedArticles from '../../components/ListedArticles/ListedArticles';
 import { countries } from '../../constants/constants';
 import { fetchTopNewsByCategory } from '../../redux/news/newsActions';
 
+// COMPONENT LOGIC
 const SingleCategory = () => {
   const dispatch = useDispatch();
 
-  // ROUTER - Getting category name from path(params)
+  // Getting category name from path(params)
   const category = useParams().category;
 
   const country = useSelector((state) => state.news.country);
@@ -23,8 +24,6 @@ const SingleCategory = () => {
   );
 
   useEffect(() => {
-    console.log(country, category, 222);
-
     dispatch(fetchTopNewsByCategory(country, category));
   }, [country, category, dispatch]);
 

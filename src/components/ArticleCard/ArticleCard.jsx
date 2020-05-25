@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 import stringShortener from '../../utils/stringShortener';
 
@@ -8,6 +8,7 @@ import { ArticleCardContainer } from './articleCard.styles';
 
 const ArticleCard = ({ title, imageUrl, description, articleId }) => {
   const location = useLocation();
+  const params = useParams();
   const shortenDescription = stringShortener(description, 100);
   let pathname = location.pathname;
 
@@ -15,6 +16,8 @@ const ArticleCard = ({ title, imageUrl, description, articleId }) => {
   if (pathname === '/') {
     pathname = '';
   }
+
+  console.log(params, 2324242424);
 
   return (
     <ArticleCardContainer>

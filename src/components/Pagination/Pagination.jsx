@@ -1,38 +1,56 @@
 import React from 'react';
 
-import ArticleCard from '../ArticleCard/ArticleCard';
+// import ArticleCard from '../ArticleCard/ArticleCard';
+import PaginationCard from './PaginationCard/PaginationCard';
 
 import styled from 'styled-components';
 
 export const PaginationContainer = styled.section`
-  border: 2px solid red;
   width: 100%;
   overflow: hidden;
+  height: 50vh;
+  display: flex;
+  justify-content: space-evenly;
 
-  .articleCardContainer {
+  @media (max-width: 1260px) {
+    height: 50vh;
+  }
+
+  .paginationCardContainer {
     width: 30%;
-    border: 2px solid green;
+    overflow: hidden;
+
+    @media (max-width: 1160px) {
+      width: 50%;
+    }
   }
 
   .indicator {
     font-size: 1.3rem;
     font-weight: bold;
   }
-
-  .indicator-left {
-  }
-  .indicator-right {
-  }
 `;
 
-// #TODO Fetch only 6 or so articles, and then fetch new ones on every 3rd indicator click (counter)
+const Pagination = ({ articles, category }) => {
+  const perPage = 3;
+  let counter = 0;
+  let startingIndex = 0;
+  const toDisplayArticles = articles
+    ? articles.filter((article, i) => {
+        if (startingIndex <= i && counter < perPage) {
+          counter++;
+          return article;
+        }
+        return false;
+      })
+    : null;
 
-const Pagination = ({ articles }) => {
-  const categoryArticles = articles
-    ? articles.map((articleObj, i) => {
+  const categoryArticles = toDisplayArticles
+    ? toDisplayArticles.map((articleObj, i) => {
         return (
-          <div className='articleCardContainer' key={i}>
-            <ArticleCard
+          <div className='paginationCardContainer' key={i}>
+            <PaginationCard
+              category={category}
               articleId={i}
               title={articleObj.title}
               imageUrl={articleObj.urlToImage}
@@ -45,9 +63,9 @@ const Pagination = ({ articles }) => {
 
   return (
     <PaginationContainer>
-      <div className='indicator indicatorLeft'>{'<---'}</div>
+      {/* <div className='indicator indicatorLeft'>{'<---'}</div> */}
       {categoryArticles}
-      <div className='indicator indicatorRight'>{'--->'}</div>
+      {/* <div className='indicator indicatorRight'>{'--->'}</div> */}
     </PaginationContainer>
   );
 };
