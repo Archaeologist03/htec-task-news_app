@@ -35,6 +35,7 @@ const ListedArticles = React.memo(({ pageTitle, articles }) => {
 });
 
 ListedArticles.propTypes = {
+  pageTitle: PropTypes.string,
   articles: PropTypes.array,
 };
 

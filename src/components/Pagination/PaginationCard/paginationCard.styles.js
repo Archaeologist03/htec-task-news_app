@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { yellowColor } from '../../styles/-variables';
-import { backAndForthHover } from '../../styles/-newsMixin';
+import { yellowColor } from '../../../styles/-variables';
+import { backAndForthHover } from '../../../styles/-newsMixin';
 
-export const ArticleCardContainer = styled.article`
+export const PaginationCardContainer = styled.article`
   display: flex;
   flex-direction: column;
   padding: 15px;
@@ -12,7 +12,7 @@ export const ArticleCardContainer = styled.article`
   box-shadow: 2px 2px 2px black;
   margin: 0.5rem;
   transition: ease-in-out 0.5s;
-  max-height: 100%;
+  max-height: 95%;
 
   &:hover {
     box-shadow: 8px 8px 18px black;
@@ -23,13 +23,18 @@ export const ArticleCardContainer = styled.article`
   }
 
   .cardTitle {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: white;
     margin-bottom: 20px;
     text-align: center;
     border-bottom: 1px solid ${yellowColor};
     padding: 0.5rem;
     padding-bottom: 1rem;
+
+    @media (max-width: 560px) {
+      font-size: 1rem;
+      padding: 0;
+    }
   }
 
   .cardImageContainer {
@@ -39,16 +44,8 @@ export const ArticleCardContainer = styled.article`
     position: relative;
     border-radius: 12px;
 
-    @media (max-width: 968px) {
-      height: 25vh;
-    }
-
-    @media (max-width: 860px) {
-      height: 40vh;
-    }
-
-    @media (max-width: 560px) {
-      height: 25vh;
+    @media (max-width: 1560px) {
+      height: 12vh;
     }
 
     img {
@@ -71,6 +68,10 @@ export const ArticleCardContainer = styled.article`
     margin: 0.5rem;
     border-top: 1px solid ${yellowColor};
     border-bottom: 1px solid ${yellowColor};
+
+    @media (max-width: 960px) {
+      display: none;
+    }
   }
 
   /* link.. */

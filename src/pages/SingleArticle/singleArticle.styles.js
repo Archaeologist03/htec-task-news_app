@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { yellowColor } from '../../styles/-variables';
+import { backAndForthHover } from '../../styles/-newsMixin';
 
 export const SingleArticleContainer = styled.div`
   position: absolute;
@@ -21,6 +22,11 @@ export const SingleArticleContainer = styled.div`
     width: 80%;
     text-align: center;
     border-bottom: 1px solid ${yellowColor};
+
+    @media (max-width: 560px) {
+      font-size: 1.3rem;
+      margin-top: 100px;
+    }
   }
 
   .imageContainer {
@@ -75,5 +81,10 @@ export const SingleArticleContainer = styled.div`
     margin-left: 5%;
     color: ${yellowColor};
     align-self: flex-start;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      ${backAndForthHover}
+    }
   }
 `;

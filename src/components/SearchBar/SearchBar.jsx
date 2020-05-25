@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
 import { SearchBarInput } from './searchBar.styles';
@@ -26,6 +27,10 @@ const SearchBar = ({ onInputTermChange }) => {
       onChange={onInputChange}
     />
   );
+};
+
+SearchBar.propTypes = {
+  onInputTermChange: PropTypes.func,
 };
 
 export default SearchBar;
