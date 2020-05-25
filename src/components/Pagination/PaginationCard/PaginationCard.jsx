@@ -38,7 +38,7 @@ PaginationCard.propTypes = {
   title: PropTypes.string,
   imageUrl: PropTypes.string,
   description: PropTypes.string,
-  articleId: PropTypes.string.isRequired,
+  articleId: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
 };
 
