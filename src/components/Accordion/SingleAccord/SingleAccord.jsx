@@ -34,8 +34,6 @@ const SingleAccord = ({ category }) => {
 
   const articles = categoryArticles ? categoryArticles : null;
 
-  console.log(articles);
-
   return (
     <SingleAccordContainer onClick={onContainerClick}>
       <Link to={`${pathname}/${category}`} className='category-link'>

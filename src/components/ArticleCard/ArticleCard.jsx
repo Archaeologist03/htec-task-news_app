@@ -17,8 +17,6 @@ const ArticleCard = ({ title, imageUrl, description, articleId }) => {
     pathname = '';
   }
 
-  console.log(params, 2324242424);
-
   return (
     <ArticleCardContainer>
       <h2 className='cardTitle'>{title}</h2>

@@ -35,7 +35,6 @@ export function* fetchTopNewsByCategorySaga(payload) {
       country,
       category,
     );
-    console.log(articles);
 
     const reducersPayload = {
       articles,

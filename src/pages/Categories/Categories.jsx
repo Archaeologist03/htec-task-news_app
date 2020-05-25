@@ -7,9 +7,7 @@ import { CategoriesContainer, AccordionContainer } from './categories.styles';
 const Categories = () => {
   const country = useSelector((state) => state.news.country);
 
-  console.log(country, 232);
-
-  const pageTitle = `Top 5 news by categories from ${country.toUpperCase()}:`;
+  const pageTitle = `Top 3 news by categories from ${country.toUpperCase()}:`;
 
   return (
     <CategoriesContainer>
