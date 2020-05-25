@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
@@ -28,6 +29,13 @@ const ArticleCard = ({ title, imageUrl, description, articleId }) => {
       </Link>
     </ArticleCardContainer>
   );
+};
+
+ArticleCard.propTypes = {
+  title: PropTypes.string,
+  imageUrl: PropTypes.string,
+  description: PropTypes.string,
+  articleId: PropTypes.string.isRequired,
 };
 
 export default ArticleCard;

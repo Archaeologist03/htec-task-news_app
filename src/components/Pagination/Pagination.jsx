@@ -1,35 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// import ArticleCard from '../ArticleCard/ArticleCard';
 import PaginationCard from './PaginationCard/PaginationCard';
-
-import styled from 'styled-components';
-
-export const PaginationContainer = styled.section`
-  width: 100%;
-  overflow: hidden;
-  height: 50vh;
-  display: flex;
-  justify-content: space-evenly;
-
-  @media (max-width: 1260px) {
-    height: 50vh;
-  }
-
-  .paginationCardContainer {
-    width: 30%;
-    overflow: hidden;
-
-    @media (max-width: 1160px) {
-      width: 50%;
-    }
-  }
-
-  .indicator {
-    font-size: 1.3rem;
-    font-weight: bold;
-  }
-`;
+import { PaginationContainer } from './pagination.styles';
 
 const Pagination = ({ articles, category }) => {
   const perPage = 3;
@@ -68,6 +41,11 @@ const Pagination = ({ articles, category }) => {
       {/* <div className='indicator indicatorRight'>{'--->'}</div> */}
     </PaginationContainer>
   );
+};
+
+Pagination.propTypes = {
+  articles: PropTypes.array,
+  category: PropTypes.string.isRequired,
 };
 
 export default Pagination;

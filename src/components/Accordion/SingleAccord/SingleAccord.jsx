@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -30,8 +31,6 @@ const SingleAccord = ({ category }) => {
     }
   }, [isOpen, country, category, dispatch]);
 
-  // False - accord is closed, and we fetch data on open. Otherwise no need for fething data (on accord close)
-
   const articles = categoryArticles ? categoryArticles : null;
 
   return (
@@ -44,6 +43,10 @@ const SingleAccord = ({ category }) => {
       </div>
     </SingleAccordContainer>
   );
+};
+
+SingleAccord.propTypes = {
+  category: PropTypes.string.isRequired,
 };
 
 export default SingleAccord;
