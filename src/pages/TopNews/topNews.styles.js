@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
+import { pageContainer } from '../../styles/-pagesMixin';
+
 export const TopNewsContainer = styled.div`
-  position: absolute;
-  top: 10%;
-  min-height: 90%;
-  width: 100%;
+  ${pageContainer}
 `;
 
 export const TopNewsTitle = styled.div`
