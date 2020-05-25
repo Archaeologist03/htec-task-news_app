@@ -35,7 +35,7 @@ ArticleCard.propTypes = {
   title: PropTypes.string,
   imageUrl: PropTypes.string,
   description: PropTypes.string,
-  articleId: PropTypes.string.isRequired,
+  articleId: PropTypes.number.isRequired,
 };
 
 export default ArticleCard;
