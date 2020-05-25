@@ -35,10 +35,16 @@ export function* fetchTopNewsByCategorySaga(payload) {
       country,
       category,
     );
+    console.log(articles);
+
+    const reducersPayload = {
+      articles,
+      category,
+    };
 
     yield put({
       type: newsTypes.FETCH_TOP_NEWS_BY_CATEGORY_SUCCESS,
-      payload: articles,
+      payload: reducersPayload,
     });
   } catch (error) {
     yield put({

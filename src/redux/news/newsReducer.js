@@ -3,9 +3,9 @@ import NewsTypes from './newsTypes';
 import CATEGORIES_LIST from '../../constants/categories';
 
 // Populate topNews categories with nulls for initial state.
-let topNewsCategories = {};
+let topNewsByCategories = {};
 CATEGORIES_LIST.forEach((categoryName) => {
-  topNewsCategories[categoryName] = null;
+  topNewsByCategories[categoryName] = null;
 });
 
 const INITIAL_STATE = {
@@ -13,7 +13,7 @@ const INITIAL_STATE = {
   countrySwitcherState: true,
   topNewsArticles: null,
   topNewsByTermArticles: null,
-  topNewsCategories,
+  topNewsByCategories,
   error: null,
 };
 
@@ -21,6 +21,7 @@ const errorMessage = 'Error occured, try to refresh page.';
 
 const newsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    // COUNTRY
     case NewsTypes.COUNTRY_SWITCH:
       return {
         ...state,
@@ -34,6 +35,7 @@ const newsReducer = (state = INITIAL_STATE, action) => {
         error: null,
       };
 
+    // TOP NEWS
     case NewsTypes.FETCH_TOP_NEWS_SUCCESS:
       return {
         ...state,
@@ -46,10 +48,16 @@ const newsReducer = (state = INITIAL_STATE, action) => {
         error: errorMessage,
       };
 
+    // CATEGORIES
     case NewsTypes.FETCH_TOP_NEWS_BY_CATEGORY_SUCCESS:
+      const { articles, category } = action.payload;
+
       return {
         ...state,
-        topNewsArticles: action.payload,
+        topNewsByCategories: {
+          ...topNewsByCategories,
+          [category]: articles,
+        },
         error: null,
       };
     case NewsTypes.FETCH_TOP_NEWS_BY_CATEGORY_FAIL:
@@ -58,6 +66,7 @@ const newsReducer = (state = INITIAL_STATE, action) => {
         error: errorMessage,
       };
 
+    // SEARCH TERM
     case NewsTypes.FETCH_TOP_NEWS_BY_TERM_SUCCESS:
       return {
         ...state,
