@@ -44,6 +44,8 @@ npm start
 
 #### services ---> Logic, Mostly Fetching redux related.
 
+#### hooks ---> Custom Hooks.
+
 #### styles ---> Styling variables and mixins.
 
 #### utils ---> Small data manipulation utils.

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchTopNewsByTerm } from '../../redux/news/newsActions';
@@ -14,10 +14,12 @@ const Search = () => {
   const topNewsByTermArticles = useSelector(
     (state) => state.news.topNewsByTermArticles,
   );
+  const [debouncedTerm, setDebouncedTerm] = useState('');
 
-  const onInputTermChange = (searchTerm) => {
-    dispatch(fetchTopNewsByTerm(country, searchTerm));
-  };
+  // Displaching on debounced search term change.
+  useEffect(() => {
+    dispatch(fetchTopNewsByTerm(country, debouncedTerm));
+  }, [debouncedTerm, country, dispatch]);
 
   const pageTitle = `Search top news from ${countries[country]} by term:`;
 
@@ -25,7 +27,7 @@ const Search = () => {
     <SearchContainer>
       <h1 className='pageTitle'>{pageTitle}</h1>
       <SearchBarContainer>
-        <SearchBar onInputTermChange={onInputTermChange} />
+        <SearchBar onDebounceChange={setDebouncedTerm} />
       </SearchBarContainer>
       <ListenArticles articles={topNewsByTermArticles} />
     </SearchContainer>
