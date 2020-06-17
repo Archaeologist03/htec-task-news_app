@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
-import { useDebounce } from '../../hooks/useDebounce';
 import { SearchBarInput } from './searchBar.styles';
 
-const SearchBar = ({ onDebounceChange }) => {
+const SearchBar = ({ onInputTermChange }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  // Need Country state to fetch new data on country switch as well.
+  // useEffect triggers on country change in order to fetch data.
+  const country = useSelector((state) => state.news.country);
 
   const onInputChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  // Send debounced value to dispaching compponent.
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
   useEffect(() => {
-    if (debouncedSearchTerm || debouncedSearchTerm === '') {
-      onDebounceChange(debouncedSearchTerm);
-    }
-  }, [debouncedSearchTerm, onDebounceChange]);
+    onInputTermChange(searchTerm);
+    // eslint-disable-next-line
+  }, [searchTerm, country]);
 
   return (
     <SearchBarInput
@@ -30,7 +30,7 @@ const SearchBar = ({ onDebounceChange }) => {
 };
 
 SearchBar.propTypes = {
-  onDebounceChange: PropTypes.func,
+  onInputTermChange: PropTypes.func,
 };
 
 export default SearchBar;
