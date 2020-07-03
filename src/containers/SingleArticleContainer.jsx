@@ -5,6 +5,10 @@ import { useParams, Redirect, useLocation } from 'react-router-dom';
 // REDUX & PAGES
 import { countrySwitcherState } from '../redux/news/newsActions';
 import SingleArticle from '../pages/SingleArticle/SingleArticle';
+import {
+  selectTopNews,
+  selectTopNewsByTerm,
+} from '../redux/news/newsSelectors';
 
 // SERVICES IMPORTS
 import {
@@ -23,15 +27,13 @@ const SingleArticleContainer = () => {
 
   // STATE
   // Top News
-  const topNewsArticles = useSelector((state) => state.news.topNewsArticles);
+  const topNewsArticles = useSelector(selectTopNews);
   // Top News By Category
   const topNewsByCategoryArticles = useSelector(
     (state) => state.news.topNewsByCategories[category],
   );
   // Top News By Term
-  const topNewsByTermArticles = useSelector(
-    (state) => state.news.topNewsByTermArticles,
-  );
+  const topNewsByTermArticles = useSelector(selectTopNewsByTerm);
 
   // EFFECTS
   // Country Switcher is disabled on this page. And goes back to true(enabled) when component is unmounted / exited (cleanup).

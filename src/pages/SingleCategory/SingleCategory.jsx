@@ -9,6 +9,7 @@ import ListedArticles from '../../components/ListedArticles/ListedArticles';
 // REDUX & CONSTANTS
 import { countries } from '../../constants/constants';
 import { fetchTopNewsByCategory } from '../../redux/news/newsActions';
+import { selectCountry } from '../../redux/news/newsSelectors';
 
 // COMPONENT LOGIC
 const SingleCategory = () => {
@@ -17,7 +18,7 @@ const SingleCategory = () => {
   // Getting category name from path(params)
   const category = useParams().category;
 
-  const country = useSelector((state) => state.news.country);
+  const country = useSelector(selectCountry);
   // Use chosen category from params to access specific category in redux store.
   const categoryArticles = useSelector(
     (state) => state.news.topNewsByCategories[category],

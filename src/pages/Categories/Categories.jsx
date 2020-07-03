@@ -1,11 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import { selectCountry } from '../../redux/news/newsSelectors';
+
 import Accordion from '../../components/Accordion/Accordion';
 import { CategoriesContainer, AccordionContainer } from './categories.styles';
 
 const Categories = () => {
-  const country = useSelector((state) => state.news.country);
+  const country = useSelector(selectCountry);
 
   const pageTitle = `Top 3 news by categories from ${country.toUpperCase()}:`;
 
